@@ -1,17 +1,34 @@
 <template>
     <div id="heart_click" @click=animate>
-        <div id="heart">
-            
+        <div :class='{animated: animated,
+            infinite: infinite,
+            bounceOutDown: bounceOutDown,
+            rubberBand: rubberBand}'>
+            <div id="heart"></div>
         </div>
+        <div id="click_tip" v-if='tip_show'>click~</div>
     </div>
 </template>
 
 <script>
 export default {
     name: 'HeartClick',
+    data () {
+        return {
+            animated: true,
+            infinite: true,
+            bounce: true,
+            bounceOutDown: false,
+            rubberBand: true,
+            tip_show: false
+        }
+    },
     methods: {
         animate() {
-
+            this.tip_show = false
+            this.bounce = false
+            this.bounceOutDown = true
+            this.infinite = false
         }
     }
 }
@@ -24,6 +41,13 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+    }
+    #click_tip {
+        position: absolute;
+        /* top: 50%; */
+        /* left: 50%; */
+        /* transform: translate(-50%,-50%); */
     }
     #heart {
         width: 15vw;
