@@ -29,6 +29,9 @@ export default {
             this.bounce = false
             this.bounceOutDown = true
             this.infinite = false
+            setTimeout( () => {
+                this.$emit('stepDone',1)
+            },1000)
         }
     }
 }
@@ -42,6 +45,7 @@ export default {
         justify-content: center;
         align-items: center;
         position: relative;
+        background-color:azure;
     }
     #click_tip {
         position: absolute;
