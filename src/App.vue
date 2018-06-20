@@ -13,6 +13,7 @@
 
     <Intro
     v-if="step == 2"
+    @stepDone=changeStep
     ></Intro>
     
   </div>
@@ -37,9 +38,7 @@
     },
     methods: {
       changeStep(step) {
-        if(step == 1) {
-          this.step += 1
-        }
+        this.step += 1
       },
       handleMusic() {
         if(!this.isPaused) {
