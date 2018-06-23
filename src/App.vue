@@ -4,7 +4,7 @@
         @click='handleMusic' 
         :class='{musicPlaying: isplaying}'>
         <div class="iconfont icon-yinlemusic214"></div>
-        <audio src="http://ox2pbpy73.bkt.clouddn.com/%E7%9C%8B%E9%80%8F%E4%BB%A5%E5%90%8E.mp3" id='music'></audio>
+        <audio :src="songSrc" id='music'></audio>
     </div>
     <HeartClick 
     v-if="step == 1"
@@ -15,25 +15,33 @@
     v-if="step == 2"
     @stepDone=changeStep
     ></Intro>
+
+    <Time
+    v-if="step == 3"
+    @stepDone=changeStep>
+    </Time>
     
   </div>
 </template>
 
 <script>
-  import HeartClick from './components/heartClick'
+  import HeartClick from './components/HeartClick'
   import Intro from './components/Intro'
+  import Time from './components/Time'
 
   export default {
     name: 'App',
     components: {
       HeartClick,
-      Intro
+      Intro,
+      Time
     },
     data() {
       return {
         isPaused: false,
         isplaying: true,
-        step: 1,
+        step: 3,
+        songSrc: 'http://ox2pbpy73.bkt.clouddn.com/Ed%20Sheeran%20-%20Photograph.mp3'
       }
     },
     methods: {
