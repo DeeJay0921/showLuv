@@ -142,7 +142,7 @@
   }
 
   #together {
-    padding-top: 35%;
+    padding-top: 20%;
     padding-bottom: 5%;
   }
 
